@@ -78,3 +78,8 @@ jobs:
   call-workflow:
     needs: [set-variables, check-variables]
     uses: dave99galloway/github-actions-issues/.github/workflows/called-workflow.yml@main
+    with:
+      FOO: ${{ needs.set-variables.outputs.FOO }}
+      BAR: ${{ needs.set-variables.outputs.BAR }}
+      BAZ: ${{ needs.set-variables.outputs.BAZ }}
+      REASON: ${{ needs.set-variables.outputs.REASON }}

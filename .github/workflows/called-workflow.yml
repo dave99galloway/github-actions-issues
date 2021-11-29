@@ -1,0 +1,24 @@
+name: CalledWorkflow
+
+on:
+  workflow_call:
+    inputs:
+      FOO:
+        required: true
+        type: string
+      BAR:
+        required: false
+        type: string
+      BAZ:
+        required: false
+        type: boolean
+jobs:
+   check-variables-in-called-wf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check-variables-step
+        run: |
+          echo "FOO: ${{ inputs.FOO }}"
+          echo "BAR: ${{ inputs.BAR }}"
+          echo "BAZ: ${{ inputs.BAZ }}"
+          echo "REASON: ${{ inputs.REASON }}"

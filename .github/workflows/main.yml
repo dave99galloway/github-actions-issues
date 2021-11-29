@@ -80,5 +80,5 @@ jobs:
     with:
       FOO: ${{ needs.set-variables.outputs.FOO }}
       BAR: ${{ needs.set-variables.outputs.BAR }}
-      BAZ: ${{ needs.set-variables.outputs.BAZ }}
+      BAZ: ${{ toJSON(needs.set-variables.outputs.BAZ) }}
       REASON: ${{ needs.set-variables.outputs.REASON }}

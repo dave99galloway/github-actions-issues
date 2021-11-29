@@ -36,7 +36,7 @@ jobs:
             echo $line
             echo "$line" >> $GITHUB_ENV
             echo "::set-output name=${line/=/::}"
-          done < ${{ github.workspace }}/.github/env/myConfig.env
+          done < ${{ github.workspace }}/.github/workflows/example.env
 
           echo "print GITHUB_ENV at end"
           while IFS= read -r line; do

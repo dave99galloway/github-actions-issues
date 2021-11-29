@@ -11,7 +11,7 @@ on:
         type: string
       BAZ:
         required: false
-        type: boolean
+        type: string
       REASON:
         required: true
         type: string
@@ -19,7 +19,13 @@ jobs:
    check-variables-in-called-wf:
     runs-on: ubuntu-latest
     steps:
-      - name: check-variables-step
+      - name: parse variable true
+        if: ${{ fromJSON(inputs.BAZ) }}
+        run: echo "BAZ was true"
+      - name: parse variable false
+        if: ${{ !fromJSON(inputs.BAZ) }}
+        run: echo "BAZ was false"
+      - name: parse boolean steps
         run: |
           echo "FOO: ${{ inputs.FOO }}"
           echo "BAR: ${{ inputs.BAR }}"

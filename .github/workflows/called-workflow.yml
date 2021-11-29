@@ -12,6 +12,9 @@ on:
       BAZ:
         required: false
         type: boolean
+      REASON:
+        required: true
+        type: string
 jobs:
    check-variables-in-called-wf:
     runs-on: ubuntu-latest

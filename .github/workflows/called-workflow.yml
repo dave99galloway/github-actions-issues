@@ -19,6 +19,10 @@ jobs:
    check-variables-in-called-wf:
     runs-on: ubuntu-latest
     steps:
+      - name: print inputs
+        run: |
+          echo BAZ : ${{ inputs.BAZ }} 
+          echo BAZ from json : ${{ fromJSON(inputs.BAZ) }} 
       - name: parse variable true
         if: ${{ fromJSON(inputs.BAZ) }}
         run: echo "BAZ was true"

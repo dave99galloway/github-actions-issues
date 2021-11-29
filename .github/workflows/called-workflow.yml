@@ -24,10 +24,10 @@ jobs:
           echo BAZ : ${{ inputs.BAZ }} 
           echo BAZ from json : ${{ fromJSON(inputs.BAZ) }} 
       - name: parse variable true
-        if: ${{ fromJSON(inputs.BAZ) }}
+        if: ${{ fromJSON(inputs.BAZ) == true }}
         run: echo "BAZ was true"
       - name: parse variable false
-        if: ${{ !fromJSON(inputs.BAZ) }}
+        if: ${{ fromJSON(inputs.BAZ) == false }}
         run: echo "BAZ was false"
       - name: parse boolean steps
         run: |

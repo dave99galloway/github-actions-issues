@@ -18,4 +18,4 @@ jobs:
   call-workflow:
     uses: dave99galloway/github-actions-issues/.github/workflows/input-sanitisation.yml@main
     with:
-      test: ${{ github.events.inputs.reason }}
+      test: ${{ github.event.input.reason }}

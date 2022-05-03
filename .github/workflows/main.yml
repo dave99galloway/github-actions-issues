@@ -11,6 +11,13 @@ on:
         default: 'Test'
         # Input has to be provided for the workflow to run
         required: false
+      os:
+        type: choice
+        description: set the runner os of the called workflow
+        required: true
+        options:
+        - macos-latest
+        - ubuntu-latest
         
 jobs:
   set-variables:
@@ -82,3 +89,4 @@ jobs:
       BAR: ${{ needs.set-variables.outputs.BAR }}
       BAZ: ${{ toJSON(needs.set-variables.outputs.BAZ) }}
       REASON: ${{ needs.set-variables.outputs.REASON }}
+      os: ${{ inputs.os }}

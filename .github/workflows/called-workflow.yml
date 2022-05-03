@@ -15,9 +15,13 @@ on:
       REASON:
         required: true
         type: string
+      os:
+        required: true
+        type: string
+        
 jobs:
    check-variables-in-called-wf:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.os }}
     steps:
       - name: print inputs
         run: |

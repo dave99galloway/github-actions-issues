@@ -89,4 +89,4 @@ jobs:
       BAR: ${{ needs.set-variables.outputs.BAR }}
       BAZ: ${{ toJSON(needs.set-variables.outputs.BAZ) }}
       REASON: ${{ needs.set-variables.outputs.REASON }}
-      os: ${{ inputs.os }}
+      os: ${{ github.event.inputs.os }}
